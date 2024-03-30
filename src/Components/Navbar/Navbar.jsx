@@ -282,7 +282,7 @@ function Navbar() {
                 (
                   <Avatar
                     alt="Avatar"
-                    src={localStorage.getItem("loggedIn") === "true" ? JSON.parse(localStorage.getItem("user")).avatar || localStorage.getItem("userAvatar") : null}
+                    src={localStorage.getItem("loggedIn") === "true" ? localStorage.getItem("userAvatar") : null}
                   />
                 ) 
               </IconButton>

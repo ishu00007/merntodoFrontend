@@ -49,8 +49,12 @@ function SignIn() {
 
                 // console.log(localStorage);
 
+                console.log(result);
+
 
                 localStorage.setItem("user" , JSON.stringify(result.data.data));
+                // console.log(result.data.data.avatar );
+                localStorage.setItem("userAvatar" , result.data.data.avatar)
 
                 // console.log(localStorage);
                 
@@ -66,9 +70,9 @@ function SignIn() {
 
             }
         } catch (error) {
-            // console.log(error)
+            console.log(error)
             // setError(error.response.data ? error.response.data.match(/<pre>([^<]+)<br>/)[1].trim() : "error while signing in ")
-            notifyError(error.response.data ? error.response.data.match(/<pre>([\s\S]*?)<\/pre>/)?.[1]?.trim() : "error while signing in "   )
+            // notifyError(error.response.data ? error.response.data.match(/<pre>([\s\S]*?)<br>/)?.[1]?.trim() : "error while signing in "   )
         } finally{
             setLoading(false)
         }

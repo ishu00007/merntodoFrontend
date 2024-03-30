@@ -45,7 +45,8 @@ function TodosHeader() {
 
         // console.log(data);
 
-        const accessToken = JSON.parse(localStorage.getItem("user")).accessToken;
+        const accessToken = JSON.parse(localStorage.getItem("user"))
+
         const config = {
             headers: {
                 Authorization: accessToken
@@ -55,7 +56,7 @@ function TodosHeader() {
         try {
             const response = await axios.post("/todo/addTodo", data, config);
             // console.log(response);
-            if (response.status === 200) {
+            if (response.status === 200) { 
                 title.current.value = "";
                 description.current.value = "";
                 // console.log(response);

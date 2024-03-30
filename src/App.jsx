@@ -7,10 +7,13 @@ import Todos from "./Components/Todos/Todos"
 import ContextProvider from "./context/context"
 import Developer from "./Components/Developer/Developer"
 import Profile from "./Components/Profile/profile"
+import { useEffect } from "react"
 
 
 
 function App(){
+
+    // useEffect(() => console.log(localStorage))
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<Layout/>}>

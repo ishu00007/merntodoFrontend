@@ -18,13 +18,13 @@ function Home() {
     const usernameRef = useRef();
 
     const navigate = useNavigate()
-    
+
     const todoDataFromContext = useContext(TodoContext)
     const notifySuccess = todoDataFromContext.notifySuccess
     const notifyError = todoDataFromContext.notifyError
 
     const [errorMessage, setErrorMessage] = useState()
-    const [loading , setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent default form submission behavior
@@ -45,7 +45,7 @@ function Home() {
 
             // console.log(response);
             // const responseData = await response.json()
-            if (response.ok ||response.status<300 && response.status>199) {
+            if (response.ok || response.status < 300 && response.status > 199) {
                 console.log(response)
                 nameRef.current.value = ""
                 ageRef.current.value = ""
@@ -57,15 +57,15 @@ function Home() {
             } else {
                 notifyError("Registeration failed")
                 throw new Error(response.message || 'Registration failed');
-                
+
             }
         } catch (error) {
             console.log(error);
             // setErrorMessage(error.response?.data.match(/<pre>([^<]+)<br>/)[1].trim() || 'Registration failed' || error.message);
-notifyError(
-  (error.response?.data && error.response.data.match(/<pre>([\s\S]*?)<\/pre>/)?.[1]?.trim()) 
-);
-        } finally{
+            notifyError(
+                (error.response?.data && error.response.data.match(/<pre>([\s\S]*?)<br>/)?.[1]?.trim())
+            );
+        } finally {
             setLoading(false)
         }
 
@@ -97,10 +97,10 @@ notifyError(
                         <TextField required label="age" placeholder="enter your age" fullWidth type="number" margin="dense" inputRef={ageRef} className="textfield" />
                         <TextField required type="password" helperText="password must have an uppercase , lowercase , number and a special character" placeholder="enter your password" label="password" fullWidth margin="dense" inputRef={passwordRef} className="textfield" />
                         <Stack textAlign={"center"} direction={"column"}>
-                            <Button variant="contained" sx={{ margin: "10px 0px" }} disabled={loading ? true : false} type="submit" className="newAcc" size="large">{loading ? <CircularProgress/> : <>Create New Account</>}</Button>
-                            
+                            <Button variant="contained" sx={{ margin: "10px 0px" }} disabled={loading ? true : false} type="submit" className="newAcc" size="large">{loading ? <CircularProgress /> : <>Create New Account</>}</Button>
+
                         </Stack>
-                        <ToastContainer/>
+                        <ToastContainer />
                     </form>
                     <Stack direction={"row"} gap={"20px"} alignItems={"center"} justifyContent={"center"} className="newAcc">
                         <Typography>Already have an account?</Typography>
