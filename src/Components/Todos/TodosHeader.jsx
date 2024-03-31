@@ -45,7 +45,7 @@ function TodosHeader() {
 
         // console.log(data);
 
-        const accessToken = JSON.parse(localStorage.getItem("user"))
+        const accessToken = JSON.parse(localStorage.getItem("user")).accessToken
 
         const config = {
             headers: {
